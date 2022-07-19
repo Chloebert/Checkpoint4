@@ -1,2 +1,27 @@
-//start coding by removing this file and adding yours ;)
-@import "wcs";
+@import "variables.scss";
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Lexend:wght@400;800&display=swap');
+
+@font-face {
+    font-family: "Homenaje";
+    src: url("../fonts/Homenaje-Regular.woff2") format("woff2"),
+        url("../fonts/Homenaje-Regular.woff") format("woff");
+    font-style: normal;
+}
+
+body {
+    font-family: $textFont;
+    line-height: $lineHeight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: $titleFont;
+}
+
+h1 {
+    font-size: 5rem;
+}
