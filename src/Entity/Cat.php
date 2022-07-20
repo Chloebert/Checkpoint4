@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\CatRepository;
 use DateTime;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CatRepository::class)]
@@ -34,6 +36,14 @@ class Cat
 
     #[ORM\Column(type: 'boolean')]
     private ?bool $catOfTheMonth;
+
+    #[ORM\OneToMany(mappedBy: 'cat', targetEntity: CatPicture::class, cascade: ['persist', 'remove'])]
+    private ?Collection $catPictures = null;
+
+    public function __construct()
+    {
+        $this->catPictures = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +130,18 @@ class Cat
     public function setCatOfTheMonth(bool $catOfTheMonth): self
     {
         $this->catOfTheMonth = $catOfTheMonth;
+
+        return $this;
+    }
+
+    public function getCatPictures(): ?Collection
+    {
+        return $this->catPictures;
+    }
+
+    public function setCatPictures(?Collection $catPictures): self
+    {
+        $this->catPictures = $catPictures;
 
         return $this;
     }
