@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CatPicture{% endblock %}
+
+{% block body %}
+    <h1>Edit CatPicture</h1>
+
+    {{ include('cat_picture/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_cat_picture_index') }}">back to list</a>
+
+    {{ include('cat_picture/_delete_form.html.twig') }}
+{% endblock %}
