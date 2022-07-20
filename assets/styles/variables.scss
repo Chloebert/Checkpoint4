@@ -2,13 +2,18 @@ $primary: #0586e4;
 $secondary: #7C3F1D;
 $dark: #49230D;
 $light: #FFFAF8;
+$transparentBg : rgba(255, 250, 248, 0.4 );
 $titleShadowColor: rgba(188, 123, 86, 1);
-$shadowColor: rgba(38, 17, 5, 0.5);
+$shadowColor: rgba(38, 17, 5, 0.2);
 $adminColor: darken($primary, 50%);
 $titleFont: "Homenaje", sans-serif;
 $textFont: 'Hubballi', sans-serif;
 $logoFont: "Lexend", sans-serif;
 
+$navbarHeight: 3.5rem;
+
 $lineHeight: 1.5;
 
 $titleShadow: 2px 2px 0px $titleShadowColor;
+$subTitleShadow: 2px 2px 0px $light;
+$boxShadow: 2px 8px 6px $shadowColor;

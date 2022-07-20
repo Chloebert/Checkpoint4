@@ -10,6 +10,7 @@
 }
 
 body {
+    height: 100%;
     font-family: $textFont;
     line-height: $lineHeight;
 }
@@ -27,7 +28,21 @@ h1 {
 }
 
 .navbar-brand {
-    word-break: break-all;
-    font-size: clamp(1rem, 5vw, 4rem);
+    font-size: clamp(1.5rem, 2vw, 4rem);
     text-shadow: $titleShadow;
+}
+
+.navbar-toggler {
+    font-size: clamp(1rem, 2vw, 4rem);
+}
+
+.navbar {
+    height: $navbarHeight;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -$navbarHeight;
+    visibility: hidden;
 }
