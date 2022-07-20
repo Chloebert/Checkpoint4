@@ -1,0 +1,13 @@
+@import "variables.scss";
+
+main {
+    height: 100vh;
+    background-image: url("../images/minettebowgr.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+h1 {
+    text-shadow: 2px 2px 0px $titleShadowColor;
+}
