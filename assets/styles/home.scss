@@ -1,13 +1,34 @@
 @import "variables.scss";
 
 main {
-    height: 100vh;
     background-image: url("../images/minettebowgr.jpeg");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     background-attachment: fixed;
 }
 
 h1 {
     text-shadow: 2px 2px 0px $titleShadowColor;
+}
+
+.home-elements {
+    height: 100vh;
+}
+
+.element-bg {
+    background-color: $transparentBg;
+    box-shadow: $boxShadow;
+    backdrop-filter: blur(6px);
+}
+
+.introduction-title {
+    text-shadow: $subTitleShadow;
+    font-size: clamp(1rem, 7vw, 3rem);
+}
+
+@media screen and (max-width: 550px) {
+    main {
+        padding-bottom: 10rem;
+    }
 }
