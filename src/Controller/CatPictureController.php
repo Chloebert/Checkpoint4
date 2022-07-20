@@ -16,7 +16,7 @@ class CatPictureController extends AbstractController
     #[Route('/', name: 'app_cat_picture_index', methods: ['GET'])]
     public function index(CatPictureRepository $catPictureRepository): Response
     {
-        return $this->render('cat_picture/index.html.twig', [
+        return $this->render('admin/cat_picture/index.html.twig', [
             'cat_pictures' => $catPictureRepository->findAll(),
         ]);
     }
@@ -34,7 +34,7 @@ class CatPictureController extends AbstractController
             return $this->redirectToRoute('app_cat_picture_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('cat_picture/new.html.twig', [
+        return $this->renderForm('admin/cat_picture/new.html.twig', [
             'cat_picture' => $catPicture,
             'form' => $form,
         ]);
@@ -43,7 +43,7 @@ class CatPictureController extends AbstractController
     #[Route('/{id}', name: 'app_cat_picture_show', methods: ['GET'])]
     public function show(CatPicture $catPicture): Response
     {
-        return $this->render('cat_picture/show.html.twig', [
+        return $this->render('admin/cat_picture/show.html.twig', [
             'cat_picture' => $catPicture,
         ]);
     }
@@ -60,7 +60,7 @@ class CatPictureController extends AbstractController
             return $this->redirectToRoute('app_cat_picture_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('cat_picture/edit.html.twig', [
+        return $this->renderForm('admin/cat_picture/edit.html.twig', [
             'cat_picture' => $catPicture,
             'form' => $form,
         ]);

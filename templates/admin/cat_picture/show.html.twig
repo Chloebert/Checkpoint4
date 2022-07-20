@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/admin_base.html.twig' %}
 
 {% block title %}CatPicture{% endblock %}
 
@@ -26,5 +26,5 @@
 
     <a href="{{ path('app_cat_picture_edit', {'id': cat_picture.id}) }}">edit</a>
 
-    {{ include('cat_picture/_delete_form.html.twig') }}
+    {{ include('admin/cat_picture/_delete_form.html.twig') }}
 {% endblock %}
