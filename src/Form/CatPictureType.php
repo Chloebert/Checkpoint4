@@ -26,9 +26,6 @@ class CatPictureType extends AbstractType
                 'class' => Cat::class,
                 'label' => 'Chat',
                 'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-                'by_reference' => false,
                 'attr' => [
                     'class' => 'cat-names'
                 ],])

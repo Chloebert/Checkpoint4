@@ -2,12 +2,14 @@
 
 namespace App\Entity;
 
+use App\Entity\Cat;
 use App\Repository\CatPictureRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CatPictureRepository::class)]
+#[Vich\Uploadable]
 class CatPicture
 {
     #[ORM\Id]
@@ -19,10 +21,10 @@ class CatPicture
     private ?Cat $cat;
 
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
-    private ?string $picture;
+    private ?string $picture = null;
 
-    #[Vich\UploadableField(mapping: 'cat_picture', fileNameProperty: 'cat_picture')]
-    private File $pictureFile;
+    #[Vich\UploadableField(mapping: 'cat_picture', fileNameProperty: 'picture')]
+    private ?File $pictureFile = null;
 
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $mainPicture;
@@ -62,7 +64,7 @@ class CatPicture
         return $this;
     }
 
-    public function getictureFile(): ?File
+    public function getPictureFile(): ?File
     {
         return $this->pictureFile;
     }

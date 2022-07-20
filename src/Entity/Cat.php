@@ -38,7 +38,12 @@ class Cat
     private ?bool $catOfTheMonth;
 
     #[ORM\OneToMany(mappedBy: 'cat', targetEntity: CatPicture::class, cascade: ['persist', 'remove'])]
-    private ?CatPicture $catPictures = null;
+    private ?Collection $catPictures = null;
+
+    public function __construct()
+    {
+        $this->catPictures = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -129,12 +134,12 @@ class Cat
         return $this;
     }
 
-    public function getCatPictures(): ?CatPicture
+    public function getCatPictures(): ?Collection
     {
         return $this->catPictures;
     }
 
-    public function setCatPictures(?CatPicture $catPictures): self
+    public function setCatPictures(?Collection $catPictures): self
     {
         $this->catPictures = $catPictures;
 
