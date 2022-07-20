@@ -20,6 +20,7 @@ h1 {
     background-color: $transparentBg;
     box-shadow: $boxShadow;
     backdrop-filter: blur(7px);
+    border-radius: 10px;
 }
 
 .introduction-title {
