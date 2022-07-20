@@ -25,3 +25,9 @@ h5 {
 h1 {
     font-size: 5rem;
 }
+
+.navbar-brand {
+    word-break: break-all;
+    font-size: clamp(1rem, 5vw, 4rem);
+    text-shadow: $titleShadow;
+}
