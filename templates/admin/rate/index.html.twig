@@ -19,7 +19,7 @@
         {% for rate in rates %}
             <tr>
                 <td>{{ rate.catId.name }}</td>
-                <td>{{ rate.rate }}</td>
+                <td>{{ rate.rating }}</td>
                 <td>{{ rate.userId.email }}</td>
                 <td>
                     <a href="{{ path('app_admin_rate_show', {'id': rate.id}) }}">show</a>

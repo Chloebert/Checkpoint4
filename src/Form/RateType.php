@@ -25,7 +25,7 @@ class RateType extends AbstractType
                     'class' => 'fs-4'
                 ],
             ])
-            ->add('rate', ChoiceType::class, [
+            ->add('rating', ChoiceType::class, [
                 'label' => 'Choose your rate!',
                 'label_attr' => [
                     'class' => 'fs-4'

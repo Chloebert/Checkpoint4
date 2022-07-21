@@ -14,7 +14,8 @@ class Rate
     private int $id;
 
     #[ORM\Column(type: 'integer')]
-    private ?int $rate;
+    #[ORM\JoinColumn(nullable: true)]
+    private ?int $rating;
 
     #[ORM\ManyToOne(targetEntity: Cat::class, inversedBy: 'rates')]
     private ?Cat $catId;
@@ -28,14 +29,14 @@ class Rate
         return $this->id;
     }
 
-    public function getRate(): ?int
+    public function getRating(): ?int
     {
-        return $this->rate;
+        return $this->rating;
     }
 
-    public function setRate(int $rate): self
+    public function setRating(int $rating): self
     {
-        $this->rate = $rate;
+        $this->rating = $rating;
 
         return $this;
     }

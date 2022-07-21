@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Rate;
+use App\Entity\Cat;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * @extends ServiceEntityRepository<Rate>
@@ -39,28 +41,27 @@ class RateRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Rate[] Returns an array of Rate objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('r.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return Rate[] Returns an array of Rate objects
+     */
+    public function findById(int $id): array
+    {
+        return $this->createQueryBuilder('r')
+            ->select('AVG(r.rating) AS AVERAGE')
+            ->andWhere('r.catId = :catId')
+            ->innerJoin('App\Entity\Cat', 'c', 'WITH', 'r.catId = c.id')
+            ->setParameter('catId', $id)
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?Rate
-//    {
-//        return $this->createQueryBuilder('r')
-//            ->andWhere('r.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    //    public function findOneBySomeField($value): ?Rate
+    //    {
+    //        return $this->createQueryBuilder('r')
+    //            ->andWhere('r.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }
