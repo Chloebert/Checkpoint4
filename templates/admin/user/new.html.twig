@@ -1,0 +1,15 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block title %}New User
+{% endblock %}
+
+{% block body %}
+	<div class="container d-flex flex-column">
+		<a class="btn btn-sm btn-outline-secondary w-25 text-center mt-3 mb-3" href="{{ path('app_user_index') }}">back to list</a>
+		<h1>Create a new User</h1>
+
+		{{ include('admin/user/_form.html.twig') }}
+
+	</div>
+
+{% endblock %}
