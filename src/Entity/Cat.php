@@ -40,9 +40,13 @@ class Cat
     #[ORM\OneToMany(mappedBy: 'cat', targetEntity: CatPicture::class, cascade: ['persist', 'remove'])]
     private ?Collection $catPictures = null;
 
+    #[ORM\OneToMany(mappedBy: 'catId', targetEntity: Rate::class)]
+    private Collection $rates;
+
     public function __construct()
     {
         $this->catPictures = new ArrayCollection();
+        $this->rates = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -142,6 +146,36 @@ class Cat
     public function setCatPictures(?Collection $catPictures): self
     {
         $this->catPictures = $catPictures;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Rate>
+     */
+    public function getRates(): Collection
+    {
+        return $this->rates;
+    }
+
+    public function addRate(Rate $rate): self
+    {
+        if (!$this->rates->contains($rate)) {
+            $this->rates[] = $rate;
+            $rate->setCatId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRate(Rate $rate): self
+    {
+        if ($this->rates->removeElement($rate)) {
+            // set the owning side to null (unless already changed)
+            if ($rate->getCatId() === $this) {
+                $rate->setCatId(null);
+            }
+        }
 
         return $this;
     }

@@ -27,7 +27,6 @@ class CatPictureController extends AbstractController
         $catPicture = new CatPicture();
         $form = $this->createForm(CatPictureType::class, $catPicture);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $catPictureRepository->add($catPicture, true);
 

@@ -21,6 +21,9 @@
         {% block navbar %}
 			{% include 'components/_navbar.html.twig' %}
 		{% endblock %}
+        {% block message %}
+			{% include 'components/_flash_message.html.twig' %}
+		{% endblock %}
         {% block body %}{% endblock %}
         {% block footer %}
 			{% include 'components/_footer.html.twig' %}
