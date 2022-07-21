@@ -11,8 +11,15 @@
 		<div class="navbar-nav bg-light">
 			<a class="nav-link fs-4 text-secondary text-center" aria-current="page" href="#">Cat of the month</a>
 			<a class="nav-link fs-4 text-secondary text-center" href="/#introduction">Introduction</a>
-			<a class="nav-link fs-4 text-secondary text-center" href="#">The cats</a>
+			<a class="nav-link fs-4 text-secondary text-center" href="{{ path('cats_index') }}">The cats</a>
+			{% if app.user %}
 			<a class="nav-link fs-4 text-secondary text-center" href="#">Vote</a>
+				<a class="nav-link fs-4 text-secondary text-center" href="{{ path('logout') }}">
+					Logout</a>
+			{% else %}
+				<a class="nav-link fs-4 text-secondary text-center" href="{{ path('login') }}">
+					Login</a>
+			{% endif %}
 		</div>
 	</div>
 </nav>
