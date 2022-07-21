@@ -1,0 +1,14 @@
+@import "variables.scss";
+
+.cat-img img {
+    max-width: 20rem;
+    height: auto;
+}
+
+.birthday h2 {
+    text-shadow: 2px 2px 0px $titleShadowColor;
+}
+
+.description-title {
+    text-shadow: $subTitleShadow;
+}
