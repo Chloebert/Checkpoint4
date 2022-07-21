@@ -1,0 +1,6 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <div class="d-flex justify-content-end">
+    <button class="btn btn-primary fs-5 text-light w-25 text-center">{{ button_label|default('Vote') }}</button>
+    </div>
+{{ form_end(form) }}

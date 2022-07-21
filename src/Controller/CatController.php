@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Cat;
 use App\Form\CatType;
 use App\Repository\CatRepository;
+use App\Repository\RateRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +15,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class CatController extends AbstractController
 {
     #[Route('/', name: 'app_cat_index', methods: ['GET'])]
-    public function index(CatRepository $catRepository): Response
+    public function index(CatRepository $catRepository, RateRepository $rateRepository): Response
     {
         return $this->render('admin/cat/index.html.twig', [
             'cats' => $catRepository->findAll(),
+            'ratings' => $rateRepository->findAll(),
         ]);
     }
 
@@ -41,10 +43,13 @@ class CatController extends AbstractController
     }
 
     #[Route('/{id}', name: 'app_cat_show', methods: ['GET'])]
-    public function show(Cat $cat): Response
+    public function show(Cat $cat, RateRepository $rateRepository): Response
     {
+        $averageRating = $rateRepository->findById($cat->getId());
+
         return $this->render('admin/cat/show.html.twig', [
             'cat' => $cat,
+            'ratingAverage' => $averageRating,
         ]);
     }
 

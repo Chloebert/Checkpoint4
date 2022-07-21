@@ -33,7 +33,9 @@
             </tr>
             <tr>
                 <th>Rating</th>
-                <td>{{ cat.rating }}</td>
+                {% for rating in ratingAverage %}
+                <td>{{ rating|join(', ') }}</td>
+                {% endfor %}
             </tr>
             <tr>
                 <th>CatOfTheMonth</th>
