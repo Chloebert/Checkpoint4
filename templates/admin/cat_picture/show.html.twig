@@ -1,0 +1,30 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block title %}CatPicture{% endblock %}
+
+{% block body %}
+    <h1>CatPicture</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cat_picture.id }}</td>
+            </tr>
+            <tr>
+                <th>Picture</th>
+                <td>{{ cat_picture.picture }}</td>
+            </tr>
+            <tr>
+                <th>MainPicture</th>
+                <td>{{ cat_picture.mainPicture ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cat_picture_index') }}">back to list</a>
+
+    <a href="{{ path('app_cat_picture_edit', {'id': cat_picture.id}) }}">edit</a>
+
+    {{ include('admin/cat_picture/_delete_form.html.twig') }}
+{% endblock %}

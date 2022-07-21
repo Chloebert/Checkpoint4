@@ -1,0 +1,39 @@
+{% extends 'admin/admin_base.html.twig' %}
+
+{% block title %}Rates{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Rates</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Cat</th>
+                <th>Rate</th>
+                <th>User</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rate in rates %}
+            <tr>
+                <td>{{ rate.catId.name }}</td>
+                <td>{{ rate.rating }}</td>
+                <td>{{ rate.userId.email }}</td>
+                <td>
+                    <a href="{{ path('app_admin_rate_show', {'id': rate.id}) }}">show</a>
+                    <a href="{{ path('app_admin_rate_edit', {'id': rate.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_rate_new') }}">Create new</a>
+</div>
+{% endblock %}

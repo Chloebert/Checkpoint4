@@ -1,11 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Home
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('home') }}
+{% endblock %}
 
 {% block body %}
-    <div class="pink-stripe">
-        <h1>
-            Let's start coding&nbsp;&#129304;
-        </h1>
-    </div>
+	<main class="">
+		<div class="container-fluid d-flex flex-column">
+			<div class="home-elements header mb-5 d-flex justify-content-center align-items-center">
+				<h1 class="main-title text-light pb-5 mb-5 text-center">
+					my cats. for your pleasure.
+				</h1>
+			</div>
+			{% include "components/_cat_month.html.twig" %}
+			{% include "components/_introduction.html.twig" %}
+		</div>
+	</main>
 {% endblock %}

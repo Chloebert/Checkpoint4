@@ -1,0 +1,36 @@
+<a class="anchor" id="cat-of-month"></a>
+<section class="cat-of-month pb-5 mt-5 mt-lg-0">
+	<div class="home-elements d-flex flex-column justify-content-center align-items-center">
+		<h1 class="text-light main-title mb-4 text-center">Cat of the month</h1>
+		<div class="row justify-content-center">
+			{% for cat in catOfTheMonth %}
+				<div class="card card-bg p-0 w-50">
+					{% for picture in cat.catPictures %}
+						{% if picture.mainPicture %}
+							<img src="{{ asset('uploads/images/cats/' ~ picture.picture) }}" class="card-img-top cotm-img w-100" alt="...">
+						{% endif %}
+					{% endfor %}
+					<div class="card-body">
+						<h5 class="home-title cotm-title text-center text-center text-secondary">{{ cat.name }}</h5>
+						<div class="row d-flex flex-row">
+							<div class="col-5 d-flex align-items-center flex-column">
+                            <h5 class="home-title fs-2 text-primary">Good</h5>
+								<p class="card-text fs-4">{{ cat.goodPoint }}</p>
+							</div>
+							<div class="col-2 d-flex align-items-center justify-content-center">
+								<p class="card-text fs-1">
+									<i class="fa-solid fa-paw"></i>
+								</p>
+							</div>
+							<div class="col-5 d-flex align-items-center flex-column">
+                            <h5 class="home-title fs-2 text-primary">Bad</h5>
+								<p class="card-text text-end fs-4">{{ cat.badPoint }}</p>
+							</div>
+						</div>
+					</div>
+					<a href="#" class="btn btn-primary m-3 text-light btn-outline-light btn-hover-dark fs-5">Learn more about {{ cat.name }} !</a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+</div></section>

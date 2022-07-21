@@ -1,0 +1,43 @@
+@import "variables.scss";
+
+.home-elements {
+    height: 100vh;
+}
+
+.card-bg {
+    background-color: $transparentBg;
+    box-shadow: $boxShadow;
+    backdrop-filter: blur(7px);
+}
+
+.home-title {
+    text-shadow: $subTitleShadow;
+    font-size: clamp(1rem, 7vw, 3rem);
+}
+
+.cotm-img {
+    -webkit-mask-image: linear-gradient(black 65%, transparent);
+}
+
+.cotm-title {
+    margin-top: -10%;
+}
+
+@media screen and (max-width: 800px) {
+    main {
+        padding-bottom: 10rem;
+    }
+
+    .home-elements {
+        height: 100%;
+    }
+
+    .header {
+        margin-top: 10rem;
+        height: 100%;
+    }
+
+    .card-bg {
+        min-width: 80%;
+    }
+}

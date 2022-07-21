@@ -10,6 +10,7 @@
 }
 
 body {
+    height: 100%;
     font-family: $textFont;
     line-height: $lineHeight;
 }
@@ -24,4 +25,56 @@ h5 {
 
 h1 {
     font-size: 5rem;
+}
+
+.main-title {
+    text-shadow: 2px 2px 0px $titleShadowColor;
+}
+
+.navbar-brand {
+    font-size: clamp(1.5rem, 3vw, 4rem);
+    text-shadow: $titleShadow;
+}
+
+.navbar-toggler {
+    font-size: clamp(1rem, 2vw, 4rem);
+}
+
+.navbar {
+    height: $navbarHeight;
+}
+
+a.anchor {
+    display: block;
+    position: relative;
+    top: -$navbarHeight;
+    visibility: hidden;
+}
+
+.footer {
+    height: 100px;
+}
+
+.element-bg {
+    background-color: $transparentBg;
+    box-shadow: $boxShadow;
+    backdrop-filter: blur(7px);
+    border-radius: 10px;
+}
+
+main {
+    background-image: url("../images/minettebowgr.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.login {
+    max-height: 90vh;
+}
+
+.alert {
+    margin-top: $navbarHeight;
+    margin-bottom: 0;
 }

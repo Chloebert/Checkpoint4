@@ -1,0 +1,25 @@
+<nav class="navbar navbar-dark bg-primary fixed-top">
+	<div class="container-fluid">
+		<a class="navbar-brand ms-2 text-light" href="/">Cat.com</a>
+		<div class="justify-content-end">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+	</div>
+	<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+		<div class="navbar-nav bg-light">
+			<a class="nav-link fs-4 text-secondary text-center" aria-current="page" href="#">Cat of the month</a>
+			<a class="nav-link fs-4 text-secondary text-center" href="/#introduction">Introduction</a>
+			<a class="nav-link fs-4 text-secondary text-center" href="{{ path('cats_index') }}">The cats</a>
+			{% if app.user %}
+			<a class="nav-link fs-4 text-secondary text-center" href="{{ path('vote') }}">Vote</a>
+				<a class="nav-link fs-4 text-secondary text-center" href="{{ path('logout') }}">
+					Logout</a>
+			{% else %}
+				<a class="nav-link fs-4 text-secondary text-center" href="{{ path('login') }}">
+					Login</a>
+			{% endif %}
+		</div>
+	</div>
+</nav>
