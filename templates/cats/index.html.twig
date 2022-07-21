@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	{{ encore_entry_link_tags('cats') }}
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="container-fluid d-flex flex-column align-items-center">
+			<div class="d-flex justify-content-center align-items-center">
+				<h1 class="main-title text-light mt-5 pt-5 text-center">
+					The cats
+				</h1>
+			</div>
+			<div class="cat-links row w-75 mb-5">
+				{% for cat in cats %}
+					<div class="col-4 mx-auto">
+						<a class="btn btn-primary fs-4 text-light btn-outline-light w-100 mt-3" href="#{{ cat.name }}">{{ cat.name }}</a>
+					</div>
+				{% endfor %}
+			</div>
+			{% for cat in cats %}
+				{% set age = date().diff(date(cat.dateOfBirth)).y %}
+				<a class="anchor" id="{{ cat.name }}"></a>
+				<section class="{{ cat.name }} pb-5 mt-5 mt-lg-0">
+					<div class="d-flex flex-column justify-content-center align-items-center">
+						<h1 class="text-light main-title mb-4">{{ cat.name }}</h1>
+						<div class="element-bg w-75 p-5">
+							<div class="row">
+								{% if cat.catPictures %}
+									{% for picture in cat.catPictures|slice(0, 1) %}
+										<div class="cat-img col-4 d-flex align-items-center">
+											<img class="w-100" src="{{ asset('uploads/images/cats/' ~ picture.picture) }}"></img>
+									</div>
+								{% endfor %}
+							{% endif %}
+							<div class="{% if cat.catPictures is not empty %} col-8 {% else %} col-12 {% endif %}">
+								<div class="birthday">
+									<h2 class="text-light">
+										{{ cat.dateOfBirth | date('d-m-Y') }}
+										-
+										{{ age }}
+										years old</h2>
+								</div>
+								<h2 class="text-primary">Description</h2>
+								<p class="fs-4 w-100 text-dark">{{ cat.description }} {{ cat.description }}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		{% endfor %}
+
+	</div>
+</main>{% endblock %}

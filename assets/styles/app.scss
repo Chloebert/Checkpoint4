@@ -27,6 +27,10 @@ h1 {
     font-size: 5rem;
 }
 
+.main-title {
+    text-shadow: 2px 2px 0px $titleShadowColor;
+}
+
 .navbar-brand {
     font-size: clamp(1.5rem, 2vw, 4rem);
     text-shadow: $titleShadow;
@@ -49,4 +53,19 @@ a.anchor {
 
 .footer {
     height: 100px;
+}
+
+.element-bg {
+    background-color: $transparentBg;
+    box-shadow: $boxShadow;
+    backdrop-filter: blur(7px);
+    border-radius: 10px;
+}
+
+main {
+    background-image: url("../images/minettebowgr.jpeg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
 }
