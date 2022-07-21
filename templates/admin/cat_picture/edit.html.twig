@@ -5,7 +5,7 @@
 
 {% block body %}
 	<div class="container d-flex flex-column">
-		<a class="btn btn-sm btn-outline-secondary" href="{{ path('app_cat_picture_index') }}">back to list</a>
+		<a class="btn btn-sm btn-outline-secondary w-25 text-center mt-3 mb-3" href="{{ path('app_cat_picture_index') }}">back to list</a>
 		<h1>Edit picture</h1>
 		
 			{{ include('admin/cat_picture/_form.html.twig', {'button_label': 'Update'}) }}
