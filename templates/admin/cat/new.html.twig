@@ -1,11 +1,13 @@
 {% extends 'admin/admin_base.html.twig' %}
 
-{% block title %}New Cat{% endblock %}
+{% block title %}New Cat
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Cat</h1>
+	<div class="container d-flex flex-column">
+		<a class="btn btn-sm btn-outline-secondary w-25 text-center mt-3 mb-3" href="{{ path('app_cat_index') }}">back to list</a>
+		<h1>Create a new cat</h1>
 
-    {{ include('admin/cat/_form.html.twig') }}
-
-    <a href="{{ path('app_cat_index') }}">back to list</a>
+		{{ include('admin/cat/_form.html.twig') }}
+	</div>
 {% endblock %}
