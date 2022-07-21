@@ -19,18 +19,25 @@ class RateController extends AbstractController
     public function index(Request $request, CatRepository $catRepository, RateRepository $rateRepository): Response
     {
         /** @var User */
-        $user = $this->getUser();/** @phpstan-ignore-line */
+        $user = $this->getUser(); /** @phpstan-ignore-line */
         $rate = new Rate();
         $form = $this->createForm(RateType::class, $rate);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $rate->setUserId($user); /** @phpstan-ignore-line */
-            $rateRepository->add($rate, true);
 
-            $this->addFlash('success', 'Your vote has been received !');
+            if ($rateRepository->findBy(['userId' => $user])) {
+                $this->addFlash('danger', 'You have already voted for this cat this month !');
 
-            return $this->redirectToRoute('vote', [], Response::HTTP_SEE_OTHER);
+                return $this->redirectToRoute('vote', [], Response::HTTP_SEE_OTHER);
+            } else {
+                $rateRepository->add($rate, true);
+
+                $this->addFlash('success', 'Your vote has been received !');
+
+                return $this->redirectToRoute('vote', [], Response::HTTP_SEE_OTHER);
+            }
         }
 
         return $this->renderForm('rate/index.html.twig', [
